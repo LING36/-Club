@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>悠月Club</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="shortcut icon" href="you.ico">
+		<meta content="悠月，美食，瘦身，健身，有机，农业，绿悠" name="keywords" />
+
+		<link rel="stylesheet" type="text/css" href="css/touchTouch.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<script src="js/jquery-3.1.1.js"></script>
+
+		<script src="js/tmStickUp.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/touchTouch.jquery.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$().UItoTop({
+					easingType: 'easeOutQuart'
+				});
+				$('.gallery .gall_item').touchTouch();
+			});
+		</script>
+	</head>
+
+	<body class="page1" id="top">
+
+		<div class="head head-margin">
+			<div class="container">
+				<div>
+					<a href="index.html"><img src="img/logo.jpg" alt="Logo alt" id="index-logo"></a>
+				</div>
+				<div class="self-nav">
+					<ul>
+						<li class="menu-contact"><a href="contact.html">giftcard</a></li>
+						<li class="line"></li>
+						<li class="menu-club"><a href="club.html">悠月club</a></li>
+						<li class="line"></li>
+						<li class="menu-element"><a href="element.html">元素</a></li>
+						<li class="line"></li>
+
+						<li class="menu-menu"><a href="menu.html">产品</a></li>
+						<li class="line"></li>
+
+						<li class="menu-index"><a href="index.html">首页</a></li>
+						<li class="line"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<style>
+			.self-nav ul > li.menu-club {
+				color: #8cd02b;
+			}
+		</style>
+
+		<div id="owl-demo" class="owl-carousel">
+			<img src="img/club/Club_banner.jpg" style="height:auto;display:block;width:100%;margin:auto;max-width:300%;" class="big-banner" />
+		</div>
+
+		<!--=====================
+          Content
+======================-->
+		<section class="content">
+			<div class="container">
+				<div class="club">
+					<div>
+						<img src="img/club/club1.jpg" />
+						<div><a>2015年6月10日 <br/>悠月首届塑身营顺利开营</a></div>
+					</div>
+					<div>
+						<img src="img/club/club2.jpg" />
+						<div><a>2015年6月<br />悠月塑身营金牌明星私教专业指导</a></div>
+					</div>
+					<div>
+						<img src="img/club/club3.jpg" />
+						<div><a>2015年6月17日 <br/>悠月塑身营BODYCOMBAT搏击格斗</a></div>
+					</div>
+					<div>
+						<img src="img/club/club4.jpg" />
+						<div><a>2015年8月1日 <br />悠月塑身营之蓝组反恐战术实战课程</a></div>
+					</div>
+
+					<div class="allpage">
+						<img src="img/club/club5.jpg" />
+						<div><a>2015年6月13日<br />悠月塑身营携手琦健身百人莱美BODYPUMP杠铃操</a></div>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- container end-->
+		</section>
+
+		<!--==============================
+              footer
+=================================-->
+		<div id="footer" style="background-color:rgb(54,53,53);overflow:hidden;">
+			<div class="container">
+
+				<div class="footer-icon"><img src="img/club/footer-icon.png" /></div>
+				<div class="contact">
+					<span><input type="text" placeholder="Enter Your Email address"/><input type="button" value="订阅" /></span>
+					<span class="icon"><img src="img/club/weichat-icon.png"/></span>
+					<span class="icon"><img src="img/club/email-icon.png"/></span>
+					<span class="icon"><img src="img/club/qq-icon.png"/></span>
+				</div>
+				<!--   <img src="/Public/ogreen/home/images/logo/footer.png"/> -->
+			</div>
+		</div>
+
+		<div style="width:100%;background-color:#aedc43;overflow:hidden;">
+			<div class="container footer-link">
+				<a href="/index.php/Home/Home/about">关于悠月</a>
+				<a>加入我们</a>
+				<a>联系我们</a>
+				<a>帮助中心</a>
+				<a>商务合作</a>
+				<a>配送范围查询</a>
+			</div>
+			<div class="contacts"><span>联系地址：深圳市龙华新区龙华街道和平路金銮国际商务大厦804</span><span>联系电话：18610161633</span></div>
+			<div class="copyright">Copyright © 上海绿悠农业科技有限公司深圳分公司 All Rights Reserved.</div>
+			<div>
+
+				<!-- <link rel="stylesheet" type="text/less" href="/Public/ogreen/home/css/self.less" /> -->
+
+				<link rel="stylesheet" type="text/css" href="css/self.css" />
+				<!-- <link rel="stylesheet" type="text/css" href="/Public/ogreen/home/css/self.css" /> -->
+
+				<script src="js/less-1.3.3.min.js"></script>
+				<script>
+					var actionName = "club";
+					$('.menu-' + actionName).addClass('current');
+					$('.big-banner').ready(changeBanner);
+					$(window).resize(changeBanner);
+
+					function changeBanner() {
+						var bannerwidth = parseInt($('.big-banner').eq(0).css('width'));
+						var windowwidth = parseInt($(window).width());
+						// alert('win='+windowwidth+":img="+bannerwidth);
+						var marginleft = (windowwidth - bannerwidth) / 2;
+						$('.big-banner').css('margin-left', marginleft);
+					}
+					window.onscroll = function() {
+						var top = parseInt($(document).scrollTop());
+						if (top > 30) {
+							$('div.head').removeClass('head-margin').addClass('head-margin-no');
+						} else {
+							$('div.head').addClass('head-margin').removeClass('head-margin-no');
+						}
+					}
+				</script>
+	</body>
+
+</html>
