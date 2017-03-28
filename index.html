@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>悠月Club</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="shortcut icon" href="you.ico">
+		<meta content="悠月，美食，瘦身，健身，有机，农业，绿悠" name="keywords" />
+
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<script src="js/jquery-3.1.1.js"></script>
+
+		<script src="js/tmStickUp.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/touchTouch.jquery.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$().UItoTop({
+					easingType: 'easeOutQuart'
+				});
+				//alert($(window).width());
+			});
+		</script>
+
+	</head>
+
+	<body class="page1" id="top">
+
+		<div class="head head-margin">
+			<div class="container">
+				<div>
+					<a href="index.html"><img src="img/logo.jpg" alt="Logo alt" id="index-logo"></a>
+				</div>
+				<div class="self-nav">
+					<ul>
+						<li class="menu-contact"><a href="contact.html">giftcard</a></li>
+						<li class="line"></li>
+						<li class="menu-club"><a href="club.html">悠月club</a></li>
+						<li class="line"></li>
+						<li class="menu-element"><a href="element.html">元素</a></li>
+						<li class="line"></li>
+
+						<li class="menu-menu"><a href="menu.html">产品</a></li>
+						<li class="line"></li>
+
+						<li class="menu-index"><a href="index.html">首页</a></li>
+						<li class="line"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<style>
+			.self-nav ul > li.menu-index {
+				color: #8cd02b;
+			}
+		</style>
+
+		<div class="banner-container">
+			<div class="banner-box banner-left">
+				<div class="banner-1">
+					<a class="item" href="/index.php/Home/home/menu" target="_self">
+						<img src="img/banner-1.jpg" />
+					</a>
+				</div>
+				<div class="banner-2">
+					<a class="item" href="/index.php/Home/home/element" target="_self">
+						<img src="img/banner-2.jpg" />
+					</a>
+				</div>
+				<div class="banner-3">
+					<a class="item" href="/index.php/Home/home/club" target="_self">
+						<img src="img/banner-3.jpg" />
+					</a>
+				</div>
+			</div>
+			<button class="left" onclick="prevBanner();"></button>
+			<button class="right" onclick="nextBanner();"></button>
+		</div>
+
+		<style type="text/css">
+			/*左右切换按钮*/
+			
+			.banner-container>button {
+				height: 82px;
+				width: 46px;
+				display: none;
+				border: none;
+				position: relative;
+				margin-top: -19%;
+			}
+			
+			.banner-container:hover>button {
+				display: inline-block;
+			}
+			
+			.banner-container>button.left {
+				float: left;
+				margin-left: 4%;
+				background-image: url('img/banner-btn-left.png');
+			}
+			
+			.banner-container>button.right {
+				margin-right: 4%;
+				float: right;
+				background-image: url('img/banner-btn-right.png');
+			}
+			
+			.banner-container {
+				width: 100%;
+				background: #fff;
+				overflow: hidden;
+			}
+			
+			.banner-box {
+				width: 300%;
+				overflow: hidden;
+				background: #fff;
+			}
+			
+			.banner-box>div {
+				background-position: center;
+				display: inline-block;
+				float: left;
+				overflow: hidden;
+				width: 33.3333%;
+			}
+			
+			.banner-box>div>a {
+				display: block;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.banner-box>div>a>img {
+				position: relative;
+				width: 99.99%;
+				display: block;
+				height: auto;
+			}
+		</style>
+
+		<script>
+			var currentclass = "banner-left";
+			var nextclass = "";
+			var stop = 0;
+			$('.banner-box').ready(function() {
+				begintime();
+			})
+
+			function begintime() {
+				window.bannertimer = window.setInterval(changebanner, 4000);
+			}
+
+			function changebanner() {
+				if (stop == 1)
+					return false;
+				$(".banner-box").removeClass(currentclass);
+				switch (currentclass) {
+					case "banner-left":
+						nextclass = "banner-middle";
+						currentclass = "banner-middle";
+						$('.banner-box').css("margin-left", "100%");
+						$('.banner-box').animate({
+							marginLeft: '0%'
+						}, "slow");
+						break;
+					case "banner-middle":
+						nextclass = "banner-right";
+						currentclass = "banner-right";
+						$('.banner-box').animate({
+							marginLeft: '-100%'
+						}, "slow");
+						break;
+					case "banner-right":
+						nextclass = "banner-left";
+						currentclass = "banner-left";
+						$('.banner-box').animate({
+							marginLeft: '-200%'
+						}, "slow");
+						break;
+				}
+				$(".banner-box").addClass(currentclass);
+			}
+
+			function nextBanner() {
+				$(".banner-box").removeClass(currentclass);
+				switch (currentclass) {
+					case "banner-left":
+						nextclass = "banner-middle";
+						currentclass = "banner-middle";
+						$('.banner-box').animate({
+							marginLeft: '0%'
+						}, "slow");
+						break;
+					case "banner-middle":
+						nextclass = "banner-right";
+						currentclass = "banner-right";
+						$('.banner-box').animate({
+							marginLeft: '-100%'
+						}, "slow");
+						break;
+					case "banner-right":
+						nextclass = "banner-left";
+						currentclass = "banner-left";
+						$('.banner-box').animate({
+							marginLeft: '-200%'
+						}, "slow");
+						break;
+				}
+				$(".banner-box").addClass(currentclass);
+			}
+
+			function prevBanner() {
+				$(".banner-box").removeClass(currentclass);
+				switch (currentclass) {
+					case "banner-left":
+						currentclass = "banner-right";
+						$('.banner-box').animate({
+							marginLeft: '-200%'
+						}, "slow");
+						break;
+					case "banner-middle":
+						currentclass = "banner-left";
+						$('.banner-box').animate({
+							marginLeft: '0%'
+						}, "slow");
+						break;
+					case "banner-right":
+						currentclass = "banner-middle";
+						$('.banner-box').animate({
+							marginLeft: '-100%'
+						}, "slow");
+						break;
+				}
+				$(".banner-box").addClass(currentclass);
+			}
+			$('.banner-container').on('mouseover', function() {
+				stop = 1;
+			})
+			$('.banner-container').mouseout(function() {
+				stop = 0;
+			})
+		</script>
+
+		<!--=====================
+          Content
+======================-->
+		<section class="content">
+			<div class="container">
+				<div class="row">
+
+					<div class="grid_4 banner-parent">
+						<div class="banner">
+							<div class="gall_block">
+								<a href="/index.php/Home/Home/product/id/1" target="_self">
+									<img src="img/index-2.png" />
+									<img src="img/index-5.png" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4 banner-parent">
+						<div class="banner">
+							<div class="gall_block">
+								<a href="/index.php/Home/Home/product/id/2" target="_self">
+									<img src="img/index-3.png" />
+									<img src="img/index-6.png" />
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid_4 banner-parent">
+						<div class="banner">
+							<div class="gall_block">
+								<a href="/index.php/Home/Home/product/id/3" target="_self">
+									<img src="img/index-4.png" />
+									<img src="img/index-7.png" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- row end -->
+			</div>
+			<!-- container end -->
+
+			<!-- ===中间标题 -->
+			<div class="middle-content">
+				<div class="container">
+
+					<div class="middle-title">
+						<!--    <div class="point"><span class="line"></span><span class="cycle"></span></div>
+                <div class="text">HOW IT WORKS</div>
+                <div class="point"><span class="cycle"></span><span class="line"></span></div> -->
+						<div><img src="img/index-middle.png" /></div>
+					</div>
+
+					<div class="grid_3 first">
+						<div class="block1">
+							<div class="count" style="-ms-border-radius:500px;">
+								<img src="img/index-text-logo1.png" />
+							</div>
+							<p class="h3">选择你的瘦身计划</p>
+
+							<span>悠月为您提供了办公室轻食午<br/>餐、5:2机体排毒和整月瘦身<br/>计划，现在，您只需轻点屏幕<br/>选择日期就能配送到府上</span>
+
+						</div>
+					</div>
+
+					<div class="grid_3">
+						<div class="block1">
+							<div class="count">
+								<img src="img/index-text-logo2.png" />
+							</div>
+							<p class="h3">配送当日</p>
+							我们使用完整的冷藏链配送模<br/>式，从食物的加工、包装、运<br/>输到配送，均在最佳温度下进<br/>行，符合美国HACCP体系临<br/>界控制点要求。
+						</div>
+					</div>
+
+					<div class="grid_3">
+						<div class="block1">
+							<div class="count">
+								<img src="img/index-text-logo3.png" />
+							</div>
+							<p class="h3">享用餐食</p>
+							建议提前30分钟从冰箱中取<br/>出退冷。沙拉类餐点直接淋上<br/>酱汁即可食用。也可根据需<br/>要，去除包装后放置于微波炉<br/>内加热1-2分钟。
+						</div>
+					</div>
+
+					<div class="grid_3">
+						<div class="block1">
+							<div class="count">
+								<img src="img/index-text-logo4.png" />
+							</div>
+							<p class="h3">加入悠月CLUB</p>
+							在悠月CLUB，我们不仅提供<br/>丰富有趣的健身私教、团体<br/>程，您还能结识更多志同道<br/>合的朋友，迎接更好的自己。
+						</div>
+					</div>
+
+				</div>
+				<!-- container end -->
+			</div>
+			<!--  middle-content end  -->
+
+			<!-- center-banner -->
+			<div style="width:100%;overflow:hidden;text-align:center;" class="middle-banner" onclick="videoplay()">
+				<img src="img/center-banner.jpg" style="width:100%;height:auto;display:block;position:relative;" />
+				<video src="img/youyue.mp4" style="margin:auto;height:440px;position:absolute;display:none;" controls="controls" id="video" loop></video>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<p style="height:78px;width:100%;float:left;margin-bottom:0;"></p>
+					<div class="gallery">
+						<div class="grid_4">
+							<a href="/index.php/Home/Home/element">
+								<img src="img/index-8.png" /></a>
+							<div class="clear"></div>
+						</div>
+						<div class="grid_4">
+							<a href="/index.php/Home/Home/element">
+								<img src="img/index-9.png" />
+							</a>
+							<div class="clear"></div>
+						</div>
+						<div class="grid_4">
+							<a href="/index.php/Home/Home/element">
+								<img src="img/index-10.png" /></a>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+					<p style="height:13px;width:100%;float:left;"></p>
+
+					<div class="gallery">
+
+						<div class="grid_8">
+							<a href="/index.php/Home/Home/club">
+								<img src="img/index-12.jpg" /></a>
+							<div class="clear"></div>
+						</div>
+
+						<div class="grid_4">
+							<a href="/index.php/Home/Home/club">
+								<img src="img/index-13.png" /></a>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--==============================
+              footer
+=================================-->
+		<div id="footer" style="background-color:rgb(54,53,53);overflow:hidden;">
+			<div class="container">
+
+				<div class="footer-icon"><img src="img/footer-icon.png" /></div>
+				<div class="contact">
+					<span><input type="text" placeholder="Enter Your Email address"/><input type="button" value="订阅" /></span>
+					<span class="icon"><img src="img/weichat-icon.png"/></span>
+					<span class="icon"><img src="img/email-icon.png"/></span>
+					<span class="icon"><img src="img/qq-icon.png"/></span>
+				</div>
+				<!--   <img src="/Public/ogreen/home/images/logo/footer.png"/> -->
+			</div>
+		</div>
+
+		<div style="width:100%;background-color:#aedc43;overflow:hidden;">
+			<div class="container footer-link">
+				<a href="/index.php/Home/Home/about">关于悠月</a>
+				<a>加入我们</a>
+				<a>联系我们</a>
+				<a>帮助中心</a>
+				<a>商务合作</a>
+				<a>配送范围查询</a>
+			</div>
+			<div class="contacts"><span>联系地址：深圳市龙华新区龙华街道和平路金銮国际商务大厦804</span><span>联系电话：18610161633</span></div>
+			<div class="copyright">Copyright © 上海绿悠农业科技有限公司深圳分公司 All Rights Reserved.</div>
+			<div>
+
+				<link rel="stylesheet" type="text/css" href="css/self.css" />
+
+				<script src="js/less-1.3.3.min.js"></script>
+				<script>
+					var actionName = "index";
+					$('.menu-' + actionName).addClass('current');
+					$('.big-banner').ready(changeBanner);
+					$(window).resize(changeBanner);
+
+					function changeBanner() {
+						var bannerwidth = parseInt($('.big-banner').eq(0).css('width'));
+						var windowwidth = parseInt($(window).width());
+						// alert('win='+windowwidth+":img="+bannerwidth);
+						var marginleft = (windowwidth - bannerwidth) / 2;
+						$('.big-banner').css('margin-left', marginleft);
+					}
+					window.onscroll = function() {
+						var top = parseInt($(document).scrollTop());
+						if (top > 30) {
+							$('div.head').removeClass('head-margin').addClass('head-margin-no');
+						} else {
+							$('div.head').addClass('head-margin').removeClass('head-margin-no');
+						}
+					}
+				</script>
+	</body>
+
+</html>
+
+<script type="text/javascript">
+	//播放视频
+	function videoplay() {
+		//计算位置
+		var x = document.getElementById("video");
+		x.play();
+		$('#video').css('display', 'block');
+		$('#videobtn').css('display', 'none');
+		calculateVideoPosition();
+	}
+
+	function calculateVideoPosition() {
+		var top = $('.middle-banner').offset().top - parseInt($('body').css('margin-top'));
+		var bannerheight = parseInt($('.middle-banner>img').css('height'));
+		var videoheight = $('#video').height();
+		var bannerwidth = $('.middle-banner').width();
+		var videowidth = $('#video').width();
+		var margin = 0;
+		var left = (bannerwidth - videowidth) / 2;
+		if (bannerheight <= videoheight) {
+			$('#video').css('height', bannerheight);
+		} else {
+			top += (bannerheight - videoheight) / 2;
+		}
+		$('#video').css({
+			'left': left,
+			'top': top
+		});
+	}
+</script>
